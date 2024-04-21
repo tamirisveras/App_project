@@ -24,7 +24,7 @@ class ProjetoDoacao(models.Model):
     descricao = models.TextField(max_length=1000, blank=False, null=False)
     data_inicio = models.DateField(blank=False, null=False, auto_now_add=True)
     data_fim = models.DateField(blank=False, null=False)
-    voluntarios = models.ManyToManyField(UserVoluntario)
+    voluntarios = models.ManyToManyField(UserVoluntario, blank=False)
 
     def __str__(self) -> str:
         return self.nome
