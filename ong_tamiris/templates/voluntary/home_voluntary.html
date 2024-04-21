@@ -1,0 +1,46 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/resources/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resources/form.css' %}">  
+    {% include 'head.html' %}
+</head>
+<br><br><br><br><br><br>
+
+<body>
+    <main>
+        <div>
+            <h1>Olá, {{ user.first_name }} {{ user.last_name }}!</h1> 
+            <p>Seja bem-vindo ao seu perfil de voluntário.</p>
+            <p>Esperamos que você possa contribuir com a nossa causa e ajudar a mudar o mundo.</p>
+
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'voluntary_detail' pk=user.pk %}" class="btn btn-primary">Detalhes do Perfil</a>
+            </div>
+
+        </div>
+        <form action="" id="contactForm">
+            <h2>Como doar:</h2>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Doação via PIX</h3>
+                </div>
+                <div class="card-body">
+                    <p>Utilize os seguintes dados:</p>
+                    <div class="qr-code-container">
+                        <img class="qr-code" src="https://ecoa.org.br/wp-content/uploads/2021/04/WhatsApp-Image-2021-04-20-at-17.25.09.jpeg" alt="QR Code para PIX" height="221" width="221">
+                    </div>
+                    <div class="pix-key">
+                        <h4>Chave PIX – CNPJ</h4>
+                        <p>33120577000196</p>
+                    </div>
+                 </div>
+            </div>
+        <p>Selecione uma das opções abaixo para começar.</p>
+        {{projetos}}
+        {% for row in projetos.all %}
+            {{row}}
+        {% endfor %}
+        <li><a href="{% url 'project' %}">Projetos</a></li>
+    </main>
+</body>

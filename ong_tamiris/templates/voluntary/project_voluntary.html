@@ -1,0 +1,28 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/resources/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resources/form.css' %}">  
+    {% include 'head.html' %}
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <ul>
+        {% for projeto in projetos.all %}
+        <div class="form-container">
+            <h1>Projetos</h1>
+            <li><h2>Nome: {{ projeto }}</h2> </li>
+            <li><h3>Descrição: {{ projeto.descricao }}</h3> </li>
+            <li><h4>Data de Inicio: {{ projeto.data_inicio }}</h4> </li>
+            <h3>Voluntarios</h3>
+            <li><h3>Nomes dos Voluntarios: 
+                {{projeto.voluntarios.user.first_name}} {{projeto.voluntarios.user.last_name}}
+                {% for voluntario in projeto.voluntarios.all %}
+                <li>{{ voluntario.user.first_name }} {{ voluntario.user.last_name }}</li>
+              {% endfor %}
+            </h3> </li>
+            <a href="{% url 'subscribe' pk=projeto.pk %}">Participar Do Projeto</a>
+        </div>
+        {% endfor %}
+    </ul>
+</body>

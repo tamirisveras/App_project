@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/resources/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resources/form.css' %}">  
+    {% include 'head.html' %}
+</head>
+<body>
+    <br><br><br><br><br><br>
+    <main class="d-flex justify-content-center align-items-center vh-100">
+        <div class="form-container">
+            {% if user.is_authenticated %}
+                <h1>Editar Usuário</h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">Salvar</button>
+                        <button class="btn btn-secondary cancel" type="button" onclick="history.back()">Cancelar</button>
+                    </div>
+                </form>
+            {% else %}
+                <h1>Cadastro</h1>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="text-center">
+                        <button class="btn btn-success" type="submit">Salvar</button>
+                        <button class="btn btn-secondary cancel" type="button" onclick="history.back()">Cancelar</button>
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

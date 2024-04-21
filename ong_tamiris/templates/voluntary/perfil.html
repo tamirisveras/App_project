@@ -1,0 +1,31 @@
+{% load static %}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/resources/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/resources/form.css' %}">  
+    {% include 'head.html' %}
+</head>
+<br><br><br><br><br><br>
+
+<body>
+    <main>
+        {% if volunt.foto %}
+            <img src="{{volunt.foto.url}}" alt="Voluntário" class="img-fluid" height="300" width="350">
+        {% else %}
+            <img src="#" alt="Voluntário" class="img-fluid" height="300" width="350">
+        {% endif %}
+        <h1>Olá, {{ user.first_name }} {{ user.last_name }}!</h1> 
+        <h2>Sexo: {{volunt.sexo}}</h2>
+        <h2>Data de nascimento: {{volunt.nascimento}}</h2>
+        <div>
+            <form action="{% url 'voluntary_edit' pk=user.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Editar Perfil</button>
+            </form>
+            <form action="{% url 'voluntary_delete' pk=user.pk %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Deletar Perfil</button>
+            </form>
+        </div>
+    </main>    
+</body>

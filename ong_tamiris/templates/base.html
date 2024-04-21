@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/resources/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/resources/form.css' %}">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+        {% include 'head.html' %}
+    </head>
+    <body>
+        {% include 'search.html' %}
+        {% include 'service.html' %}
+        {% include 'project.html' %}
+        {% include 'donation.html' %}
+        {% include 'blog.html' %}
+        {% include 'footer.html' %}
+        <script rel="stylesheet" href="{% static 'js/main.js' %}" defer></script>
+    </body>
+</html>

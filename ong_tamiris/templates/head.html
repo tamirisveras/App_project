@@ -1,0 +1,29 @@
+{% load static %}
+<header>
+
+        <a href="#" class="logo"><i class="fas fa-seedling"></i>EcoVida</a>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about">sobre</a></li>
+            <li><a href="#service">serviços</a></li>
+            <li><a href="#project">projeto</a></li>
+            <li><a href="#donate">doação</a></li>
+            <li><a href="#post">blog</a></li>
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}">voluntário</a></li>
+            {% else %}
+                <li><a href="{% url 'voluntary' %}">Perfil</a></li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">
+                        <li><a>Sair</a></li>
+                    </button>
+                  </form>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <div class="fas fa-bars"></div>
+    
+</header>

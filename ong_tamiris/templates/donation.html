@@ -1,0 +1,54 @@
+{% load static %}
+
+<section class="donate" id="donate">
+    <h1 class="heading"><i class="fas fa-quote-left"></i> Faça sua doação <i class="fas fa-quote-right"></i></h1>
+
+    <div class="video-container">
+        <video src="{% static 'css/resources/images/video.mp4' %}" loop autoplay muted></video>
+    </div>
+
+    <div class="form-container">
+        <form action="" id="contactForm">
+            <h2>Como doar:</h2>
+            <div class="card">
+                <div class="card-header">
+                    <h3>Doação via PIX</h3>
+                </div>
+                <div class="card-body">
+                    <p>Utilize os seguintes dados:</p>
+                    <div class="qr-code-container">
+                        <img class="qr-code" src="https://ecoa.org.br/wp-content/uploads/2021/04/WhatsApp-Image-2021-04-20-at-17.25.09.jpeg" alt="QR Code para PIX" height="221" width="221">
+                    </div>
+                    <div class="pix-key">
+                        <h4>Chave PIX – CNPJ</h4>
+                        <p>33120577000196</p>
+                    </div>
+                 </div>
+            </div>
+        <!--
+        </form>
+        <h1 class="heading"><i class="fas fa-quote-left"></i> Envie Sua Mensagem <i class="fas fa-quote-right"></i></h1>
+        <form action="#" id="contactForm">
+            <div class="inputBox">
+                <input type="text" placeholder="Nome" required>
+                <input type="text" placeholder="Sobrenome" required>
+            </div>
+
+            <div class="inputBox">
+                <input type="email" placeholder="Insira seu email" required>
+                <select name="project" id="project" required>
+                    <option value="" selected disabled>Selecione o projeto para doação</option>
+                    <option value="projeto1">Praia Limpa</option>
+                    <option value="projeto2">Arborização das Cidades</option>
+                    <option value="projeto3">Cidade com menos Lixos</option>
+                </select>
+            </div>
+            
+            <div class="inputBox">
+                <textarea name="message" id="message" cols="30" rows="10" placeholder="Mensagem"></textarea>
+            </div>
+            <input type="submit" class="btn" value="Enviar">
+        
+        </form> -->
+    </div>
+</section>
